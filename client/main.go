@@ -153,6 +153,6 @@ func main() {
 		fmt.Printf("ChatCompletion error: %v\n", err)
 		return
 	}
-	fmt.Println("最终答案：")
+	fmt.Println("final answer：")
 	fmt.Println(resp.Choices[0].Message.Content)
 }
