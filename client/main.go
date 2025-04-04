@@ -122,18 +122,9 @@ func main() {
 			Content: query,
 		},
 		{
-			Role:    openai.ChatMessageRoleAssistant,
-			Content: "",
-			ToolCalls: []openai.ToolCall{
-				{
-					ID:   resp.Choices[0].Message.ToolCalls[0].ID,
-					Type: "function",
-					Function: openai.FunctionCall{
-						Name:      toolCall.Name,
-						Arguments: toolCall.Arguments,
-					},
-				},
-			},
+			Role:      openai.ChatMessageRoleAssistant,
+			Content:   "",
+			ToolCalls: resp.Choices[0].Message.ToolCalls,
 		},
 		{
 			Role:       openai.ChatMessageRoleTool,
